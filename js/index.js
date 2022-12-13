@@ -9,8 +9,8 @@ function openPage(name){
         window.open("./showScreen.html","_blank","scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes,height=1200,width=1500");
     }else if(name === "about"){
         window.open("./about.html","_blank","scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes,height=850px,width=800px");
-    }else if(name === "toupiao"){
-        window.open("./touPiao.html","_blank","scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes,height=1200px,width=1500px");
+    }else if(name === "touPiao"){
+        window.open("./toupiao.html","_blank","scrollbars=yes,resizable=1,modal=false,alwaysRaised=yes,height=1200px,width=1500px");
     }
 }
 function notice(name){
