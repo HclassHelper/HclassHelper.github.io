@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css" />
+    <title>Document</title>
+</head>
+<body onload="bodyOnload()"><!--这里删掉的startOneSay()要记得补回来-->
+
+    <!-- 模态框 -->
+    <div class="modalBox" id="modalSettings">
+        <button class="buttonWidthSameAsHeight" id="buttonCloseModal" onclick="closeModal('modalSettings')">
+            <img src="./pictures/关闭小.svg" class="inWsahButtonImg">
+        </button>
+        <div class="modalTitle" id="settingsTitle">
+            <img src="./pictures/logo带字.png" id="modalImg">
+        </div>
+        <div class="modalMain" id="settingsMain">
+            程序正在开发中，敬请期待
+        </div>
+    </div>
+    <!-- 通知气泡 -->
+    <div class="noticeBox" id="noticeBox">
+        
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <!-- 顶部星期和日期 -->
+        <div class="dateBox" id="dateBox">            
+            <div class="weekDay" id="weekDay"></div>
+            <div class="month" id="month"></div>
+        </div>
+        <!-- 课程表、姓名框和其他 -->
+        <div class="sidebarBoxTwo" id="sidebarBoxTwo">
+            <!-- 课程表 -->
+            <div class="classList" id="classList"></div>
+            <!-- 姓名框 -->
+            <div class="sidebarBoxThree" id="sidebarBoxThree">
+                <div class="sidebarNameBox" id="cleanStudent">
+                    <div class="sidebarNameBoxTitle" id="cleanStudentTitle">
+                        今日值日生
+                    </div>
+                    <div class="sidebarNameBoxMain" id="cleanStudentMain">
+                        <button onclick="addCleanStudent()">添加</button>
+                    </div>
+                </div>
+                <div class="sidebarNameBox" id="cleanStudent">
+                    <div class="sidebarNameBoxTitle" id="cleanStudentTitle">
+                        今日擦黑板
+                    </div>
+                    <div class="sidebarNameBoxMain" id="cleanBlackboardStudentMain">
+                        <button onclick = "addCleanBlackboardStudent()">添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 底部 -->
+        <div class="sidebarFooter" id="sidebarFooter">
+            <button class="buttonWidthSameAsHeight" id="fullScreen" onclick="handleFullScreen(),addFontFullScreen()">
+                <img src="./pictures/全屏.svg" class="inWsahButtonImg">
+            </button>            
+            <button class="buttonWidthSameAsHeight" id="disFullScreen" onclick="fixerEFS(),exitFullScreen(),disAddFontFullScreen()">
+                <img src="./pictures/全屏.svg" class="inWsahButtonImg">
+            </button>
+            <button class="buttonWidthSameAsHeight" id="footerButton" onclick="openModal('modalSettings')">
+                <img src="./pictures/settings.svg"  class="inWsahButtonImg">
+            </button>
+            <button class="buttonWidthSameAsHeight" id="footerButton">
+                <img src="./pictures/24gf-headset.svg"  class="inWsahButtonImg">
+            </button>
+            <div id="banBen">
+                exp ver1.0
+            </div>
+        </div>
+    </div>
+    <div class="timeBox" id="timeBox"></div>
+    <div class="simplePoetry" id="simplePoetry" onclick="oneSay()"></div>
+    <div class="banQuan" id="banQuan">
+        开发：TengKong@野生技协<br>
+        野生技协合作：方块茶话会 音幻宝中 朗诵社 排球社 合唱团 街舞社 汉服社 航模社 民乐社 <br>心理社 书画社 动漫社 舞蹈队 日语社 Instreet社 机器人社 推理社 篮裁社 魔术社 冒险家协会<br>
+    </div>
+    <script src="./js/index.js"></script>
+    <script src="./js/fullScreen.js"></script>
+    <script src="./js/temp.js"></script>
+</body>
+</html>
