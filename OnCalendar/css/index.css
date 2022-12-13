@@ -5,7 +5,7 @@ html,body{
     height: 100%;width: 100%;
     display: flex;align-items: center;
     margin: 0px;padding: 0px;
-    overflow-y: hidden;
+    overflow-y: hidden;overflow-x: hidden;
     transition-duration: 0.2s;
     background-size: 100%;
     background-image: url(https://www.yangshangzhen.com/bing/wallpaper);
