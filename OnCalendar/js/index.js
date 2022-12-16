@@ -134,6 +134,9 @@ function grayScale(){
     }else if( month === 4 && day === 4){
         document.body.style.filter = "grayscale(100%)";
         noticeByBoxForward("向伟大的抗疫工作者致敬");
+    }//疫情封闭管理专项
+    else{
+        noticeByBoxForward("遵守疫情防控政策，调整心态，积极向上");
     }
 }
 
