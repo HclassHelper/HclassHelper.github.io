@@ -7,7 +7,7 @@ html,body{
     margin: 0px;padding: 0px;
     overflow-y: hidden;overflow-x: hidden;
     transition-duration: 0.2s;
-    background-size: auto;
+    background-size: 100%;
     background-image: url(https://www.yangshangzhen.com/bing/wallpaper);
     /* 调试 */
     /* background-color: rgb(255, 255, 255); */
