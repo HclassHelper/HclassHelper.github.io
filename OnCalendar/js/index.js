@@ -19,8 +19,8 @@ function time(){
     timeBox.innerHTML = h + ":" + m;
 
     //显示星期
-    let weekDayList = ["星期一","星期二","星期三","星期四","星期五","星期六","星期日"];
-    document.getElementById("weekDay").innerHTML = weekDayList[clock.getDay() -1];
+    let weekDayList = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    document.getElementById("weekDay").innerHTML = weekDayList[clock.getDay()];
 
     //显示日期
     let year = String(clock.getFullYear());
@@ -32,9 +32,9 @@ function time(){
     document.getElementById("month").innerHTML = year + "年" + month + "月" + date + "日";
 }
 
-//启动时间函数
+//启动时间函数、吃饭计算函数
 function startTime(){
-    timeStart = setInterval(function(){time()},1000);
+    timeStart = setInterval(function(){time(),toEatTime()},1000);
 }
 
 //一言API 复制的
@@ -51,7 +51,7 @@ function oneSay(){
 
 //设置一言更换计时器
 function startOneSay(){
-    setInterval(function(){oneSay()},60000);
+    setInterval(function(){oneSay()},180000);
 }
 
 //全屏后更改字号函数
@@ -61,6 +61,7 @@ function addFontFullScreen(){
     document.getElementById("timeBox").style.fontSize = "200px";
     document.getElementById("cleanStudentMain").style.fontSize = "45px";
     document.getElementById("cleanBlackboardStudentMain").style.fontSize = "45px";
+    document.getElementById("toEatMain").style.fontSize = "50px";
     for(i = 0 ; i <= 8 ; i++){
         document.getElementById("c" + i).style.fontSize = "40px";
     }
@@ -76,6 +77,7 @@ function disAddFontFullScreen(){
     document.getElementById("timeBox").style.fontSize = "130px";
     document.getElementById("cleanStudentMain").style.fontSize = "25px";
     document.getElementById("cleanBlackboardStudentMain").style.fontSize = "25px";
+    document.getElementById("toEatMain").style.fontSize = "25px";
     for(i = 0 ; i <= 8 ; i++){
         document.getElementById("c" + i).style.fontSize = "30px";
     }
@@ -85,7 +87,7 @@ function disAddFontFullScreen(){
 //课程表函数测试
 function classList(){
 
-    for(i = 0 ; i <= 9 ; i++){
+    for(i = 0 ; i <= 8 ; i++){
         let a = document.getElementById("classList").innerHTML;
         document.getElementById("classList").innerHTML = a + "<div class = \"classes\" id = \"c" + i +"\"></div>";
     }
@@ -95,15 +97,17 @@ function classList(){
     lWed = ["语","外","数","技","理化","语","生","体","自"];
     lThu = ["数","理","外","理","外","化","数","政","自"];
     lFri = ["数","语","生","史","地","化","理","外","自"];
+    lSat = ["当","前","星","期","值","暂","无","课","表"];
+    lSun = ["当","前","星","期","值","暂","无","课","表"];
 
-    cList = new Array(lMon , lTue , lWed , lThu , lFri);
+    cList = new Array(lSun , lMon , lTue , lWed , lThu , lFri , lSat);
 
     //调试
     console.log(cList);
 
     //按照星期抽取课程表
     let temp = new Date();
-    let todayClass = cList[Number(temp.getDay() - 1)];
+    let todayClass = cList[Number(temp.getDay())];
 
     //调试
     console.log(temp.getDay(),todayClass);
@@ -116,6 +120,7 @@ function classList(){
 
 //开关模态框函数
 document.getElementById("modalSettings").style.display = "none";
+document.getElementById("modalAbout").style.display = "none";
 function openModal(id){
     document.getElementById(id).style.display = "flex";
 }
@@ -142,7 +147,7 @@ function grayScale(){
 
 //body的onload函数们
 function bodyOnload(){
-    startTime()
+    startTime();
     oneSay();
     classList();
     startOneSay();
@@ -156,3 +161,30 @@ function noticeByBoxForward(text){
     temp.style.right = "50px";
     temp.innerHTML = text; 
 }
+
+//吃饭时间计算函数
+function toEatTime(){
+    isFirst = new Date().getDay() % 2;
+    h = new Date().getHours();
+    isZero = ["06:55","12:20","18:05"];
+    isntZero = ["06:55","12:10","17:55"];
+    eatTime = document.getElementById("toEatMain");
+    if( isFirst === 0){
+        if( h > 7 && h <= 12){
+            eatTime.innerHTML = isZero[1];
+        }else if( h >= 12 && h <= 18){
+            eatTime.innerHTML = isZero[2];
+        }else{
+            eatTime.innerHTML = isZero[0];
+        }
+    }else if( isFirst != 0){
+        if( h > 7 && h <= 12){
+            eatTime.innerHTML = isntZero[1];
+        }else if( h >= 12 && h <= 18){
+            eatTime.innerHTML = isntZero[2];
+        }else{
+            eatTime.innerHTML = isntZero[0];
+        }
+    }
+}
+
